@@ -78,7 +78,7 @@ export function buildWeek(goals: Goal[], routine: RoutineBlock[], capacityHours 
       if (!goals.length) return;
       const dur = toMin(e) - toMin(s);
       if (used + dur > budget + 30) return;
-      const g = goals[(i + d) % goals.length];
+      const g = goals[(i + d) % goals.length]!;
       used += dur;
       items.push({
         id: uid(), start: s, end: e, durationMinutes: dur,
