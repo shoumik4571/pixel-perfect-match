@@ -22,4 +22,5 @@ function Index() {
   const [run, setRun] = useState(0);
   if (!result) return <Onboarding onDone={(r) => { setResult(r); setRun((n) => n + 1); }} />;
   return <Workspace key={run} {...result} onEditGoals={() => setResult(null)} />;
+  // result includes optional AI plan (null when offline fallback was used)
 }
