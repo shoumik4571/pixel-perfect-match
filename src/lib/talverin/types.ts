@@ -16,8 +16,8 @@ export type ScheduleItem = {
   durationMinutes: number;
   title: string;
   type: "routine" | "deep-work";
-  goal?: string;
-  deadline?: string;
+  goal?: string | undefined;
+  deadline?: string | undefined;
   status: ItemStatus;
 };
 export type DaySchedule = { date: string; totalGoalMinutes: number; items: ScheduleItem[] };

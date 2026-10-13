@@ -60,7 +60,7 @@ export function Workspace({ profile, routine, goals, onEditGoals }: { profile: P
     return () => clearInterval(t);
   }, [active?.paused, active?.id]);
 
-  const day = week[dayIdx];
+  const day = week[dayIdx]!;
   const updateItem = (id: string, patch: Partial<ScheduleItem>) =>
     setWeek((w) => w.map((d, i) => (i !== dayIdx ? d : { ...d, items: d.items.map((it) => (it.id === id ? { ...it, ...patch } : it)).sort((a, b) => toMin(a.start) - toMin(b.start)) })));
   const removeItem = (id: string) => setWeek((w) => w.map((d, i) => (i !== dayIdx ? d : { ...d, items: d.items.filter((it) => it.id !== id) })));

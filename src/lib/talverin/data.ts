@@ -2,7 +2,7 @@ import type { Capacity, DaySchedule, Goal, RoutineBlock, ScheduleItem } from "./
 
 export const toMin = (t: string) => {
   const [h, m] = t.split(":").map(Number);
-  return h * 60 + m;
+  return (h ?? 0) * 60 + (m ?? 0);
 };
 export const toHHMM = (mins: number) => {
   const m = ((mins % 1440) + 1440) % 1440;
@@ -54,8 +54,8 @@ export const GOAL_LIBRARY: Omit<Goal, "date" | "priority">[] = [
 export const AI_SUGGESTIONS = ["Prompt Engineering Basics", "Machine Learning Crash Course", "Public Speaking", "Statistics Refresher"];
 
 export const SEED_GOALS: Goal[] = [
-  { ...GOAL_LIBRARY[0], date: isoDate(addDays(14)), priority: "High" },
-  { ...GOAL_LIBRARY[1], date: isoDate(addDays(15)), priority: "Medium" },
+  { ...GOAL_LIBRARY[0]!, date: isoDate(addDays(14)), priority: "High" },
+  { ...GOAL_LIBRARY[1]!, date: isoDate(addDays(15)), priority: "Medium" },
 ];
 
 const DEEP_SLOTS: [string, string][] = [
