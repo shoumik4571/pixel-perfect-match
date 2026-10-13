@@ -238,7 +238,7 @@ export function Workspace({ profile, routine, goals, onEditGoals }: { profile: P
                     <motion.div initial={{ height: 0 }} animate={{ height: `${(b / maxBar) * 100}%` }} transition={{ delay: 0.2 + i * 0.07, type: "spring", stiffness: 120, damping: 18 }}
                       className={`absolute inset-x-0 bottom-0 rounded-xl ${i === peak ? "bg-primary" : "bg-body"} ${i === dayIdx ? "ring-2 ring-lime ring-offset-2 ring-offset-card" : ""}`} />
                   </div>
-                  <span className={`text-xs ${i === dayIdx ? "font-semibold text-ink" : "text-meta"}`}>{dayLabel(week[i].date)}</span>
+                  <span className={`text-xs ${i === dayIdx ? "font-semibold text-ink" : "text-meta"}`}>{dayLabel(week[i]!.date)}</span>
                 </button>
               ))}
             </div>
